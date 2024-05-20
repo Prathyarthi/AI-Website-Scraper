@@ -38,3 +38,8 @@ def clean_body_content(body_content):
     cleaned_content = "\n".join(line.strip() for line in cleaned_content.splitlines() if line.strip())  # Removing extra \n characters which are not actually separating anything or any spaces.
 
     return cleaned_content
+
+def split_dom_content(dom_content,max_length=6000):
+    return [
+        dom_content[i:i+max_length] for i in range(0,len(dom_content),max_length) # Splitting the content into chunks of 6000 characters. The for loop explain that it starts from 0 and goes upto the length of the content and step-size is 6000.
+    ]
